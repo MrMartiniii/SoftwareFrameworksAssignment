@@ -1,0 +1,18 @@
+[{
+    "username": "super",
+    "email": "sup@er.com",
+    "password": "123",
+    "userid": "1",
+    "roles": ["SuperAdmin"],
+    "groups": []
+},
+{
+    "username": "chatter1",
+    "email": "chatt@er.com",
+    "password": "456",
+    "userid": "2",
+    "roles": ["chatUser"],
+    "groups": []
+}
+
+]
