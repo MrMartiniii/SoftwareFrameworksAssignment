@@ -23,7 +23,7 @@ isinRoom=false;
 newroom:string='';
 nousers:number= 0;
 
-constructor(private socketService:SocketService, private commonModule:CommonModule ) {}
+constructor(private socketService:SocketService, private commonModule:CommonModule, private router:Router ) {}
 
 ngOnInit() {
   this.initIoConnection()
@@ -42,5 +42,10 @@ chat() {
   } else {
     console.log("no message");
   }
+}
+
+end(){
+  this.socketService.leaveRoom();
+  this.router.navigateByUrl('/groups')
 }
 }

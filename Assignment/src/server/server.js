@@ -4,10 +4,11 @@ const PORT0 = 3000
 const express = require('express');
 const app = express();
 
+const http = require('http').Server(app);
 //const httpsServer = http.createServer(sslOptions, app);
 //const httpServer = http.Server(app);
 
-/*const io = require('socket.io')(http,{
+const io = require('socket.io')(http,{
     cors: {
     origin: "*",
     methods: ["GET", "POST"],
@@ -24,15 +25,16 @@ io.on('connection', (socket) => {
 
     socket.on("P")
 })
-*/
+
 const sockets = require('./socket.js')
 
 const cors = require('cors');
 const socket = require('./socket.js');
+const { group } = require('console');
 
 app.use(cors());
 
-const http = require('http').Server(app);
+
 
 app.use(express.urlencoded({
     extended: true
@@ -41,10 +43,14 @@ app.use(express.json());
 
 app.post('/login', require('./router/postLogin'));
 app.post('/loginafter', require('./router/postLoginAfter'));
-app.post('/groups'), require('./router/postGroups');
+app.post('/groups', require('./router/postGroups'));
+app.get('/groups', require('./router/postGroups.js'))
+app.get('/loginafter', require('./router/postLoginAfter.js'))
+app.delete('/groups', require('./router/postGroups.js'))
+app.put('/groups', require('./router/postGroups.js'))
 
 
-//sockets.connect(io,PORT);
+sockets.connect(io,PORT);
 
 
 http.listen(PORT,
