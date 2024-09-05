@@ -1,4 +1,4 @@
-# Documentation
+# Documentation - Assignment 1: Eric Martin s2985817
 ## Git organisation
 The git repository was commited and pushed in sessions.
 During the first session, a basic login function, including pages for the login and page after login, server set up and some css were created.
