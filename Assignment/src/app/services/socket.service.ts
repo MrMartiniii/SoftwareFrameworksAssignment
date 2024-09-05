@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
+import { disconnect } from 'process';
 import { Observable } from 'rxjs';
 
 import io from 'socket.io-client';
 
-const SERVER_URL = 'http://localhost:3000/chat';
+const SERVER_URL = 'http://localhost:8888/chat';
 
 @Injectable({
     providedIn: 'root'
@@ -31,6 +32,8 @@ send(message:string){
     this.socket.emit('message',message);
 }
 
-
+leaveRoom(){
+    this.socket.disconnect()
+}
 
 }

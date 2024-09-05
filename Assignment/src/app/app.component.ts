@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { GroupsComponent } from './groups/groups.component';
+import { ChatComponent } from './chat/chat.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, GroupsComponent, FormsModule, RouterLink],
+  imports: [RouterOutlet, LoginComponent, GroupsComponent, ChatComponent, FormsModule, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

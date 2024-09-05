@@ -13,7 +13,7 @@ module.exports = function(req, res) {
         gArray = JSON.parse(data);
         console.log(gArray);
 
-        let i = uArray.findIndex(x => x.groupName == groupObj.groupName);
+        let i = gArray.findIndex(x => x.groupName == groupObj.groupName);
         if (i == -1) {
             gArray.push(groupObj);
         } else {
@@ -25,4 +25,6 @@ module.exports = function(req, res) {
             if (err) throw err;
         })
     })
+
+    
 }
