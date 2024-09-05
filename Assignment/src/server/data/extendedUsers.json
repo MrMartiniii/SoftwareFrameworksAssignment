@@ -13,6 +13,30 @@
     "userid": "2",
     "roles": ["chatUser"],
     "groups": []
+},
+{
+    "username": "chatter2",
+    "email": "chatt@er.com",
+    "password": "456",
+    "userid": "2",
+    "roles": ["chatUser"],
+    "groups": []
+},
+{
+    "username": "chatter3",
+    "email": "chatt@er.com",
+    "password": "456",
+    "userid": "2",
+    "roles": ["chatUser"],
+    "groups": []
+},
+{
+    "username": "chatter4",
+    "email": "chatt@er.com",
+    "password": "456",
+    "userid": "2",
+    "roles": ["chatUser"],
+    "groups": []
 }
 
 ]

@@ -18,7 +18,6 @@ const BACKEND_URL = 'http://localhost:8888';
 })
 export class GroupsComponent {
 
-groups = ['group1','group2'];
 isAdmin = false;
 
 
@@ -26,14 +25,18 @@ constructor(private httpClient: HttpClient, private commonModule:CommonModule, p
 
   this.username = sessionStorage.getItem("username")!;
   this.userid = Number(sessionStorage.getItem("userid"));
+
+  this.groupName = JSON.parse(sessionStorage.getItem("groupName")!);
 }
 
 ngOnInit() {
   if (JSON.parse(sessionStorage.getItem("roles")!)[0] == "SuperAdmin") {
     this.isAdmin = true;
   }
+
 }
 
+  groupName = [];
   userid = 0;
   username = '';
   roles = '';
@@ -41,7 +44,14 @@ ngOnInit() {
   newGroup = '';
   
 addGroup() {
-  this.groups.push(this.newGroup)
+  let groupObj = {
+    "groupName":this.newGroup,
+    "admins":[this.username]
+  }
+
+  this.httpClient.post<any>(BACKEND_URL + '/groups', groupObj, httpOptions)
+    .subscribe((a: any) => {alert(JSON.stringify(a));});
+
 }
 
 logOut() {

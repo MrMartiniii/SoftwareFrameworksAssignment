@@ -4,10 +4,10 @@ const PORT0 = 3000
 const express = require('express');
 const app = express();
 
-const httpsServer = http.createServer(sslOptions, app);
-const httpServer = http.Server(app);
+//const httpsServer = http.createServer(sslOptions, app);
+//const httpServer = http.Server(app);
 
-const io = require('socket.io')(http,{
+/*const io = require('socket.io')(http,{
     cors: {
     origin: "*",
     methods: ["GET", "POST"],
@@ -24,7 +24,7 @@ io.on('connection', (socket) => {
 
     socket.on("P")
 })
-
+*/
 const sockets = require('./socket.js')
 
 const cors = require('cors');
@@ -41,8 +41,10 @@ app.use(express.json());
 
 app.post('/login', require('./router/postLogin'));
 app.post('/loginafter', require('./router/postLoginAfter'));
+app.post('/groups'), require('./router/postGroups');
 
-sockets.connect(io,PORT);
+
+//sockets.connect(io,PORT);
 
 
 http.listen(PORT,
